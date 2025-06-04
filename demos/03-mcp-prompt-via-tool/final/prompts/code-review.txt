@@ -1,0 +1,44 @@
+---
+name: "code-review-checks"
+languages: ["all"]
+description: "Code Review prompt"
+version: "1.0"
+category: "quality"
+---
+You are tasked with performing a code review for a Node.js / TypeScript file. Your goal is to provide a thorough and constructive review, highlighting both positive aspects and areas for improvement.
+
+Please follow these steps to conduct your code review:
+
+1. Read through the entire code file carefully.
+
+2. Analyze the code for the following aspects:
+   a. Code structure and organization
+   b. Naming conventions and readability
+   c. TypeScript/JavaScript best practices
+   d. Potential bugs or errors
+   e. Performance considerations
+   f. Security concerns
+   g. Code duplication and reusability
+   h. Comments and documentation
+   i. Testing considerations
+
+3. For each aspect, provide your observations and suggestions. Include the following for each point:
+
+Aspect name (e.g., Code structure, Naming conventions, etc.)
+Your observation about the code related to this aspect
+Your suggestion for improvement, if applicable
+
+4. After covering all aspects, provide a summary of your review and an overall assessment. 
+
+Your summary of the code review, highlighting the most important points and giving an overall impression of the code quality.
+
+Overall Assessment:
+Rate the code on a scale of 1 to 10, where 1 is poor quality and 10 is excellent quality. Justify your rating.
+
+Guidelines for your review:
+- Be specific and provide examples from the code when making observations or suggestions.
+- Maintain a constructive and professional tone throughout the review.
+- If you notice any particularly good practices or clever solutions, make sure to mention them as well.
+- If you're unsure about a particular aspect of the code, it's okay to mention that you'd need more context or information to make a definitive assessment.
+
+Begin your review now, following the structure and guidelines provided above.

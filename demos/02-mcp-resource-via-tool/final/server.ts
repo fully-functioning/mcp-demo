@@ -1,6 +1,19 @@
 import { McpServer, ResourceTemplate } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
+import fs from "fs/promises";
+import path from "path";
+
+const configPath = path.join(process.cwd(), "config.json");
+
+async function loadConfig() {
+  try {
+    const configRaw = await fs.readFile(configPath, "utf-8");
+    return JSON.parse(configRaw);
+  } catch (err) {
+    return { error: "Could not load config: " + ((err as Error).message || err) };
+  }
+}
 
 async function main() {
   try {
@@ -13,12 +26,15 @@ async function main() {
     server.resource(
       "config",
       new ResourceTemplate("config://app/settings", { list: undefined }),
-      async (uri) => ({
-        contents: [{
-          uri: uri.href,
-          text: JSON.stringify({ theme: "dark", version: "1.2.3" })
-        }]
-      })
+      async (uri) => {
+        const config = await loadConfig();
+        return {
+          contents: [{
+            uri: uri.href,
+            text: JSON.stringify(config)
+          }]
+        };
+      }
     );
 
     // Tool that fetches the resource and returns its data
@@ -26,8 +42,7 @@ async function main() {
       "get-config",
       {},
       async () => {
-        // Simulate fetching the resource
-        const config = { theme: "dark", version: "1.2.3" };
+        const config = await loadConfig();
         return {
           content: [{ type: "text", text: JSON.stringify(config) }]
         };

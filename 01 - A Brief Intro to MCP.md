@@ -2,8 +2,14 @@
 
 The Model Context Protocol (MCP) represents a fundamental shift in how AI assistants connect to external tools and data sources. Think of it as "USB-C for AI" - a universal standard that enables seamless integration between language models and the systems where your data lives. Since its launch by Anthropic in November 2024, MCP has experienced explosive growth with over 5,000 active servers and adoption by major players including OpenAI, Microsoft, and Google DeepMind.
 
-Documentation: https://modelcontextprotocol.io/introduction
-TypeScript SDK: https://github.com/modelcontextprotocol/typescript-sdk
+* Documentation: https://modelcontextprotocol.io/introduction<br/>
+* TypeScript SDK: https://github.com/modelcontextprotocol/typescript-sdk
+
+## Repo structure
+* [demos/01-hello-mcp-server/README.md](demos/01-hello-mcp-server/README.md)
+* [demos/02-mcp-resource-via-tool/README.md](demos/02-mcp-resource-via-tool/README.md)
+* [demos/03-mcp-prompt-via-tool/README.md](demos/02-mcp-prompt-via-tool/README.md)
+
 
 ## Core MCP architecture solves critical integration challenges
 
@@ -376,17 +382,19 @@ Once configured, access MCP tools through VS Code's agent mode. The AI assistant
 
 ## The rich MCP ecosystem offers pre-built solutions
 
-The MCP ecosystem has grown to include thousands of servers. **Official servers** cover common needs: filesystem operations, PostgreSQL/SQLite databases, GitHub/GitLab integration, Google Drive, Slack, and browser automation via Puppeteer. **Enterprise integrations** include Atlassian (Jira/Confluence), AWS services, Azure, Stripe, Notion, and Salesforce.
+The MCP ecosystem has grown to include thousands of servers. You can find some of theme here:
+* https://PulseMCP.com
+* https://smithery.ai/
+
+* **Official servers** cover common needs: filesystem operations, PostgreSQL/SQLite databases, GitHub/GitLab integration, Google Drive, Slack, and browser automation via Puppeteer.
+* **Enterprise integrations** include Atlassian (Jira/Confluence), AWS services, Azure, Stripe, Notion, and Salesforce.
 
 Popular **community servers** extend functionality further: Docker container management, Discord integration, YouTube data extraction, terminal control, Obsidian note management, and various database connectors. Multiple registries help discover servers: the official GitHub repository, mcp.so (700+ indexed servers), Glama (5,000+ active servers), and PulseMCP for curated collections.
 
 Development tools have matured rapidly. The **MCP Inspector** (`npx @modelcontextprotocol/inspector`) provides essential debugging capabilities. SDKs exist for TypeScript, Python, Java, C#, Kotlin, and Ruby. Frameworks like FastMCP simplify server development across languages.
-
-## Live coding demonstration structure
-* [demos/01-hello-mcp-server/README.md](demos/01-hello-mcp-server/README.md)
-* [demos/02-mcp-resource-via-tool/README.md](demos/02-mcp-resource-via-tool/README.md)
-* [demos/03-mcp-prompt-via-tool/README.md](demos/02-mcp-prompt-via-tool/README.md)
-
+ 
+> 🚨 WARNING: MCP servers run with your full user permissions and can access your entire system, including files, network, and execute commands. Only add MCP servers from trusted sources that you have verified. Malicious servers can steal data, install malware, or compromise your system. When in doubt, don't install.
+> See : [MCP_SECURITY_WARNING.md](MCP_SECURITY_WARNING.md) for detailed risk categories (system access, data theft, malware, network risks).
 
 ## Latest developments shape MCP's future
 

@@ -21,12 +21,13 @@ This demo shows the simplest possible MCP server using Node.js/TypeScript.
 1. Let's add a tool to `server.ts' on line 14:
     ```javascript
     // Tools are how you expose functionality to LLMs. They're similar to endpoints in a REST API - they computation and have side effects:
-    server.tool("add",
-      { a: z.number(), b: z.number() },
-      async ({ a, b }) => ({
-        content: [{ type: "text", text: String(a + b) }]
-      })
-    );
+    server.tool("add",                                     // Tool name
+      "Add two numbers",                                   // Tool description
+      { a: z.number(), b: z.number() },                    // Tool input schema
+      async ({ a, b }) => ({                               // Tool implementation
+        content: [{ type: "text", text: String(a + b) }]   // Tool output
+  })
+);
     ```
 1. Run Anthropic's MCP inspector with the following command:
    ```bash
@@ -52,4 +53,4 @@ This demo shows the simplest possible MCP server using Node.js/TypeScript.
     ```
 
 ## Next steps
-See the next demo for input validation, more tools, and error handling. 
+See the next demo for exposing resources

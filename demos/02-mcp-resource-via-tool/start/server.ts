@@ -1,8 +1,19 @@
-// Skeleton for MCP Resource via Tool Demo
+// Skeleton for Hello MCP Server
 // TODO: Import and set up MCP server here
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { z } from "zod";
 
-// TODO: Define an MCP resource (e.g., config, greeting)
+// Set up the MCP server
+const server = new McpServer({
+    name: "get-resources",
+    version: "1.0.0"
+  });
+  
+// ...  add your tools here ...
 
-// TODO: Create a tool that fetches the resource and returns its data
 
-// TODO: Set up server transport and start the server 
+
+// Start the server 
+const transport = new StdioServerTransport();
+await server.connect(transport);

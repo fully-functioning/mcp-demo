@@ -1,0 +1,6 @@
+{
+  "theme": "dark",
+  "version": "1.2.3",
+  "featureFlag": true,
+  "apiEndpoint": "https://api.example.com/v1"
+} 
